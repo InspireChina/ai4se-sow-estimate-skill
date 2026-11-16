@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>首页 - 咨询师预约平台</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <strong>咨询师预约平台</strong>
+    <nav>
+      <a href="index.html" class="active">首页</a>
+      <a href="search.html">找咨询师</a>
+      <a href="my-orders.html">我的预约</a>
+      <a href="profile.html">个人中心</a>
+    </nav>
+    <span class="who">未登录 · <a href="profile.html">登录</a></span>
+  </header>
+
+  <main class="main">
+    <h1>找到适合你的咨询师</h1>
+    <p class="muted">按领域、价格与可预约时间筛选，支持在线预约与履约保障。</p>
+
+    <div class="card">
+      <form>
+        <div class="row">
+          <div>
+            <label for="keyword">关键词</label>
+            <input id="keyword" type="text" placeholder="姓名 / 领域 / 服务关键词" />
+          </div>
+          <div>
+            <label for="category">咨询分类</label>
+            <select id="category">
+              <option>全部分类</option>
+              <option>职业发展</option>
+              <option>情绪心理</option>
+              <option>家庭教育</option>
+              <option>法律咨询</option>
+            </select>
+          </div>
+          <div>
+            <label for="price">价格区间</label>
+            <select id="price">
+              <option>不限</option>
+              <option>200 以下</option>
+              <option>200 - 500</option>
+              <option>500 以上</option>
+            </select>
+          </div>
+          <div>
+            <label for="date">可预约日期</label>
+            <input id="date" type="date" />
+          </div>
+          <div>
+            <label>&nbsp;</label>
+            <button type="submit">搜索咨询师</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <h2>热门咨询分类</h2>
+    <div class="card">
+      <ul>
+        <li><a href="search.html">职业发展与简历咨询</a> <span class="muted">326 位咨询师</span></li>
+        <li><a href="search.html">情绪与压力管理</a> <span class="muted">218 位咨询师</span></li>
+        <li><a href="search.html">亲子沟通与家庭教育</a> <span class="muted">154 位咨询师</span></li>
+        <li><a href="search.html">劳动与合同法律咨询</a> <span class="muted">97 位咨询师</span></li>
+      </ul>
+    </div>
+
+    <h2>推荐咨询师</h2>
+    <div class="card">
+      <table>
+        <thead>
+          <tr><th>咨询师</th><th>擅长领域</th><th>评分</th><th>价格</th><th>可预约</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="consultant-detail.html">李文静</a></td>
+            <td><span class="tag">职业规划</span> <span class="tag">简历优化</span></td>
+            <td>4.9</td><td>¥399 / 次</td><td>今天 15:00</td>
+            <td><a href="booking.html">预约</a></td>
+          </tr>
+          <tr>
+            <td><a href="consultant-detail.html">周砚秋</a></td>
+            <td><span class="tag">情绪心理</span> <span class="tag">压力管理</span></td>
+            <td>4.8</td><td>¥499 / 次</td><td>明天 10:30</td>
+            <td><a href="booking.html">预约</a></td>
+          </tr>
+          <tr>
+            <td><a href="consultant-detail.html">陈舒</a></td>
+            <td><span class="tag">家庭教育</span> <span class="tag">亲子沟通</span></td>
+            <td>4.7</td><td>¥359 / 次</td><td>周六 09:00</td>
+            <td><a href="booking.html">预约</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>平台保障</h2>
+    <div class="card">
+      <ul>
+        <li>咨询师入驻需平台资质审核，档案信息可查。</li>
+        <li>支付由平台担保，咨询完成后结算给咨询师。</li>
+        <li>支持订单投诉与平台介入处理。</li>
+      </ul>
+    </div>
+  </main>
+</body>
+</html>

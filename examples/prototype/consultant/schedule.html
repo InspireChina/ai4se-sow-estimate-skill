@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>档期管理 - 咨询师预约平台</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <h2>咨询师工作台</h2>
+      <ul>
+        <li><a href="index.html">工作台</a></li>
+        <li><a href="application.html">入驻申请</a></li>
+        <li><a href="profile.html">档案维护</a></li>
+        <li><a href="schedule.html" class="active">档期管理</a></li>
+        <li><a href="orders.html">预约管理</a></li>
+        <li><a href="settlements.html">收入结算</a></li>
+      </ul>
+    </aside>
+    <main class="main">
+      <h1>档期管理</h1>
+      <p class="muted">时段粒度 30 分钟 · 默认容量 1 人 · 已产生订单的时段不可删除</p>
+
+      <div class="card">
+        <h2>每周固定模板</h2>
+        <form>
+          <div class="row">
+            <div>
+              <label for="day">星期</label>
+              <select id="day">
+                <option>周一</option><option>周二</option><option>周三</option>
+                <option>周四</option><option>周五</option><option>周六</option><option>周日</option>
+              </select>
+            </div>
+            <div>
+              <label for="from">开始时间</label>
+              <input id="from" type="text" value="10:00" />
+            </div>
+            <div>
+              <label for="to">结束时间</label>
+              <input id="to" type="text" value="20:00" />
+            </div>
+            <div>
+              <label for="cap">容量</label>
+              <input id="cap" type="text" value="1" />
+            </div>
+            <div>
+              <label>&nbsp;</label>
+              <button type="submit">保存模板</button>
+            </div>
+          </div>
+        </form>
+        <table>
+          <thead><tr><th>星期</th><th>可约时段</th><th>容量</th><th>操作</th></tr></thead>
+          <tbody>
+            <tr><td>周一至周五</td><td>10:00 - 12:00，14:00 - 17:30，19:30 - 21:00</td><td>1</td>
+              <td><a href="schedule.html">编辑</a></td></tr>
+            <tr><td>周六</td><td>09:00 - 12:00</td><td>1</td><td><a href="schedule.html">编辑</a></td></tr>
+            <tr><td>周日</td><td>不开放</td><td>—</td><td><a href="schedule.html">编辑</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h2>例外日期</h2>
+        <form>
+          <div class="row">
+            <div>
+              <label for="date">日期</label>
+              <input id="date" type="text" placeholder="YYYY-MM-DD" />
+            </div>
+            <div>
+              <label for="reason">原因</label>
+              <input id="reason" type="text" placeholder="请假 / 已占用" />
+            </div>
+            <div>
+              <label>&nbsp;</label>
+              <button type="submit">添加例外日期</button>
+            </div>
+          </div>
+        </form>
+        <table>
+          <thead><tr><th>日期</th><th>原因</th><th>影响时段</th><th>操作</th></tr></thead>
+          <tbody>
+            <tr><td>2024-03-22</td><td>外出讲课</td><td>6 个时段</td><td><a href="schedule.html">删除</a></td></tr>
+            <tr><td>2024-03-30</td><td>个人安排</td><td>14 个时段</td><td><a href="schedule.html">删除</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h2>未来两周档期</h2>
+        <table>
+          <thead><tr><th>日期</th><th>空闲时段</th><th>已占用</th><th>操作</th></tr></thead>
+          <tbody>
+            <tr><td>03-18 周一</td><td>15:00、16:30</td><td>10:00、19:30</td><td><a href="schedule.html">调整</a></td></tr>
+            <tr><td>03-19 周二</td><td>10:30、14:00、20:00</td><td>16:30</td><td><a href="schedule.html">调整</a></td></tr>
+            <tr><td>03-20 周三</td><td>11:00、15:30</td><td>10:00、19:30</td><td><a href="schedule.html">调整</a></td></tr>
+          </tbody>
+        </table>
+        <button type="button" class="ghost">批量应用到未来 4 周</button>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

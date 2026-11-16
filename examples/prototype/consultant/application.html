@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>入驻申请 - 咨询师预约平台</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <h2>咨询师工作台</h2>
+      <ul>
+        <li><a href="index.html">工作台</a></li>
+        <li><a href="application.html" class="active">入驻申请</a></li>
+        <li><a href="profile.html">档案维护</a></li>
+        <li><a href="schedule.html">档期管理</a></li>
+        <li><a href="orders.html">预约管理</a></li>
+        <li><a href="settlements.html">收入结算</a></li>
+      </ul>
+    </aside>
+    <main class="main">
+      <h1>入驻申请</h1>
+      <p class="muted">当前状态：待审核 · 提交时间 2024-03-15 09:41 · 预计 1 个工作日内完成审核</p>
+
+      <div class="card">
+        <h2>申请信息</h2>
+        <form>
+          <div class="row">
+            <div>
+              <label for="realname">姓名</label>
+              <input id="realname" type="text" value="李文静" />
+            </div>
+            <div>
+              <label for="identity">执业身份</label>
+              <select id="identity">
+                <option>企业 HR</option>
+                <option>心理咨询师</option>
+                <option>执业律师</option>
+                <option>家庭教育指导师</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <label for="domain">擅长领域</label>
+              <input id="domain" type="text" value="职业规划、简历优化" />
+            </div>
+            <div>
+              <label for="years">从业年限</label>
+              <input id="years" type="text" value="9" />
+            </div>
+            <div>
+              <label for="price">期望定价</label>
+              <input id="price" type="text" value="399" />
+            </div>
+          </div>
+          <label for="intro">个人简介</label>
+          <textarea id="intro">十年 HR 与猎头经验，擅长职业方向梳理与简历优化。</textarea>
+        </form>
+      </div>
+
+      <div class="card">
+        <h2>资质证明</h2>
+        <form>
+          <div class="row">
+            <div>
+              <label for="file">上传资质文件</label>
+              <input id="file" type="file" />
+            </div>
+            <div>
+              <label>&nbsp;</label>
+              <button type="submit">上传</button>
+            </div>
+          </div>
+          <p class="muted">支持 PDF / JPG / PNG，单个文件不超过 10 MB。</p>
+        </form>
+        <table>
+          <thead><tr><th>文件名</th><th>类型</th><th>大小</th><th>状态</th><th>操作</th></tr></thead>
+          <tbody>
+            <tr><td>credential-2024.pdf</td><td>PDF</td><td>1.2 MB</td><td><span class="badge">已上传</span></td>
+              <td><a href="application.html">预览</a> · <a href="application.html">删除</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h2>审核进度</h2>
+        <table>
+          <thead><tr><th>节点</th><th>时间</th><th>结果</th></tr></thead>
+          <tbody>
+            <tr><td>提交申请</td><td>03-15 09:41</td><td>已提交</td></tr>
+            <tr><td>资料校验</td><td>03-15 09:42</td><td>通过</td></tr>
+            <tr><td>平台审核</td><td>—</td><td>审核中</td></tr>
+          </tbody>
+        </table>
+        <button type="submit">提交申请</button>
+        <button type="button" class="ghost">撤回申请</button>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

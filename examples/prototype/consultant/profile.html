@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>档案维护 - 咨询师预约平台</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <h2>咨询师工作台</h2>
+      <ul>
+        <li><a href="index.html">工作台</a></li>
+        <li><a href="application.html">入驻申请</a></li>
+        <li><a href="profile.html" class="active">档案维护</a></li>
+        <li><a href="schedule.html">档期管理</a></li>
+        <li><a href="orders.html">预约管理</a></li>
+        <li><a href="settlements.html">收入结算</a></li>
+      </ul>
+    </aside>
+    <main class="main">
+      <h1>档案维护</h1>
+      <p class="muted">对外展示版本 v3 · 关键信息变更需重新审核，审核期间保留上一版内容。</p>
+
+      <div class="card">
+        <h2>展示信息</h2>
+        <form>
+          <div class="row">
+            <div>
+              <label for="title">职称</label>
+              <input id="title" type="text" value="资深职业规划师" />
+            </div>
+            <div>
+              <label for="cat">服务分类</label>
+              <select id="cat">
+                <option>职业发展</option>
+                <option>情绪心理</option>
+                <option>家庭教育</option>
+              </select>
+            </div>
+            <div>
+              <label for="price">咨询价格</label>
+              <input id="price" type="text" value="399" />
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <label for="mode">咨询方式</label>
+              <select id="mode"><option>线上视频</option><option>语音</option></select>
+            </div>
+            <div>
+              <label for="duration">单次时长</label>
+              <select id="duration"><option>30 分钟</option><option>60 分钟</option></select>
+            </div>
+          </div>
+          <label for="intro">个人简介</label>
+          <textarea id="intro">十年 HR 与猎头经验，擅长职业方向梳理、简历优化与面试辅导。</textarea>
+          <label for="service">服务介绍</label>
+          <textarea id="service">咨询前请整理好现有简历与目标岗位描述，咨询中将逐项给出可执行建议。</textarea>
+          <label for="audience">适用人群</label>
+          <textarea id="audience">工作 2 至 8 年、准备转行或晋升的职场人。</textarea>
+          <button type="submit">保存并提交审核</button>
+          <button type="button" class="ghost">预览展示效果</button>
+        </form>
+      </div>
+
+      <div class="card">
+        <h2>擅长标签</h2>
+        <p><span class="tag">职业规划</span> <span class="tag">简历优化</span> <span class="tag">面试辅导</span>
+          <span class="badge">最多选择 5 个</span></p>
+        <form>
+          <div class="row">
+            <div>
+              <label for="tag">添加标签</label>
+              <select id="tag"><option>转行咨询</option><option>谈判技巧</option><option>团队管理</option></select>
+            </div>
+            <div>
+              <label>&nbsp;</label>
+              <button type="submit">添加标签</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="card">
+        <h2>头像与展示图</h2>
+        <form>
+          <div class="row">
+            <div>
+              <label for="avatar">头像</label>
+              <input id="avatar" type="file" />
+            </div>
+            <div>
+              <label for="cover">展示图</label>
+              <input id="cover" type="file" />
+            </div>
+            <div>
+              <label>&nbsp;</label>
+              <button type="submit">上传</button>
+            </div>
+          </div>
+          <p class="muted">图片需通过内容安全校验后才可对外展示。</p>
+        </form>
+      </div>
+
+      <div class="card">
+        <h2>审核记录</h2>
+        <table>
+          <thead><tr><th>版本</th><th>提交时间</th><th>审核结果</th><th>说明</th></tr></thead>
+          <tbody>
+            <tr><td>v3</td><td>03-10 14:02</td><td><span class="badge">已通过</span></td><td>—</td></tr>
+            <tr><td>v2</td><td>02-20 10:35</td><td><span class="badge">已通过</span></td><td>更新服务介绍</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

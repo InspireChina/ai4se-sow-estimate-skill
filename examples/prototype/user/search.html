@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>检索咨询师 - 咨询师预约平台</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <strong>咨询师预约平台</strong>
+    <nav>
+      <a href="index.html">首页</a>
+      <a href="search.html" class="active">找咨询师</a>
+      <a href="my-orders.html">我的预约</a>
+      <a href="profile.html">个人中心</a>
+    </nav>
+    <span class="who">138****6688 · <a href="profile.html">退出</a></span>
+  </header>
+
+  <main class="main">
+    <h1>检索咨询师</h1>
+    <p class="muted">共 326 位符合条件的咨询师</p>
+
+    <div class="card">
+      <form>
+        <div class="row">
+          <div>
+            <label for="kw">关键词</label>
+            <input id="kw" type="text" value="职业规划" />
+          </div>
+          <div>
+            <label for="cat">分类</label>
+            <select id="cat">
+              <option>职业发展</option>
+              <option>情绪心理</option>
+              <option>家庭教育</option>
+            </select>
+          </div>
+          <div>
+            <label for="sort">排序</label>
+            <select id="sort">
+              <option>综合评分</option>
+              <option>预约量</option>
+              <option>价格从低到高</option>
+            </select>
+          </div>
+          <div>
+            <label for="rate">最低评分</label>
+            <select id="rate">
+              <option>不限</option>
+              <option>4.0 以上</option>
+              <option>4.5 以上</option>
+            </select>
+          </div>
+          <div>
+            <label for="range">价格区间</label>
+            <input id="range" type="text" placeholder="200 - 500" />
+          </div>
+          <div>
+            <label>&nbsp;</label>
+            <button type="submit">筛选</button>
+            <button type="button" class="ghost">清空条件</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="card">
+      <table>
+        <thead>
+          <tr><th>咨询师</th><th>擅长领域</th><th>评分</th><th>咨询量</th><th>价格</th><th>最近可约</th><th>操作</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="consultant-detail.html">李文静</a></td>
+            <td>职业规划、简历优化</td><td>4.9</td><td>1 286</td><td>¥399</td>
+            <td>今天 15:00</td><td><a href="booking.html">预约</a> · <a href="consultant-detail.html">查看主页</a></td>
+          </tr>
+          <tr>
+            <td><a href="consultant-detail.html">高远</a></td>
+            <td>面试辅导、职场沟通</td><td>4.8</td><td>942</td><td>¥299</td>
+            <td>今天 19:30</td><td><a href="booking.html">预约</a> · <a href="consultant-detail.html">查看主页</a></td>
+          </tr>
+          <tr>
+            <td><a href="consultant-detail.html">林岫</a></td>
+            <td>转行咨询、简历优化</td><td>4.7</td><td>613</td><td>¥459</td>
+            <td>明天 14:00</td><td><a href="booking.html">预约</a> · <a href="consultant-detail.html">查看主页</a></td>
+          </tr>
+          <tr>
+            <td><a href="consultant-detail.html">赵沐</a></td>
+            <td>职业规划、团队管理</td><td>4.6</td><td>402</td><td>¥359</td>
+            <td>周六 11:00</td><td><a href="booking.html">预约</a> · <a href="consultant-detail.html">查看主页</a></td>
+          </tr>
+          <tr>
+            <td><a href="consultant-detail.html">孙澜</a></td>
+            <td>职业规划、谈判技巧</td><td>4.5</td><td>287</td><td>¥259</td>
+            <td>周日 20:00</td><td><a href="booking.html">预约</a> · <a href="consultant-detail.html">查看主页</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <p class="muted">上一页　1　2　3　...　66　下一页</p>
+    </div>
+  </main>
+</body>
+</html>

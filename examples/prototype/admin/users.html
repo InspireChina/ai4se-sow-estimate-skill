@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>用户管理 - 咨询师预约平台</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <h2>平台管理端</h2>
+      <ul>
+        <li><a href="index.html">运营看板</a></li>
+        <li><a href="applications.html">入驻审核</a></li>
+        <li><a href="categories.html">分类与标签</a></li>
+        <li><a href="users.html" class="active">用户管理</a></li>
+        <li><a href="orders.html">订单监控</a></li>
+        <li><a href="reports.html">举报处理</a></li>
+      </ul>
+    </aside>
+    <main class="main">
+      <h1>用户管理</h1>
+
+      <div class="tabs">
+        <a href="users.html" class="active">终端用户</a>
+        <a href="users.html">咨询师</a>
+        <a href="users.html">管理员</a>
+      </div>
+
+      <div class="card">
+        <form>
+          <div class="row">
+            <div>
+              <label for="mobile">手机号</label>
+              <input id="mobile" type="text" placeholder="输入手机号" />
+            </div>
+            <div>
+              <label for="range">注册时间</label>
+              <input id="range" type="text" placeholder="开始 - 结束" />
+            </div>
+            <div>
+              <label for="status">状态</label>
+              <select id="status">
+                <option>全部</option>
+                <option>正常</option>
+                <option>禁用</option>
+                <option>已注销</option>
+              </select>
+            </div>
+            <div>
+              <label>&nbsp;</label>
+              <button type="submit">查询</button>
+              <button type="button" class="ghost">导出</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="card">
+        <table>
+          <thead>
+            <tr><th>用户ID</th><th>手机号</th><th>昵称</th><th>账号类型</th><th>注册时间</th><th>状态</th><th>操作</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>U10023841</td><td>138****6688</td><td>小林</td><td>终端用户</td>
+              <td>2023-09-12</td><td><span class="badge">正常</span></td>
+              <td><a href="users.html">详情</a> · <a href="users.html">禁用</a></td>
+            </tr>
+            <tr>
+              <td>U10023776</td><td>136****7788</td><td>高远</td><td>咨询师</td>
+              <td>2023-11-05</td><td><span class="badge">正常</span></td>
+              <td><a href="users.html">详情</a> · <a href="users.html">禁用</a></td>
+            </tr>
+            <tr>
+              <td>U10023410</td><td>135****9901</td><td>李女士</td><td>终端用户</td>
+              <td>2023-08-30</td><td><span class="badge">禁用</span></td>
+              <td><a href="users.html">详情</a> · <a href="users.html">启用</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h2>用户详情 · U10023841</h2>
+        <table>
+          <tbody>
+            <tr><td>昵称</td><td>小林</td></tr>
+            <tr><td>手机号</td><td>138****6688</td></tr>
+            <tr><td>所在城市</td><td>杭州</td></tr>
+            <tr><td>账号类型</td><td>终端用户</td></tr>
+            <tr><td>注册时间</td><td>2023-09-12 18:04</td></tr>
+            <tr><td>累计订单</td><td>12 笔 · 成交 ¥4 268</td></tr>
+            <tr><td>收藏咨询师</td><td>2 位</td></tr>
+            <tr><td>账号状态</td><td><span class="badge">正常</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h2>治理操作</h2>
+        <form>
+          <div class="row">
+            <div>
+              <label for="action">操作</label>
+              <select id="action">
+                <option>禁用账号</option>
+                <option>启用账号</option>
+                <option>强制注销</option>
+              </select>
+            </div>
+            <div>
+              <label for="cause">操作原因</label>
+              <select id="cause">
+                <option>违规内容</option>
+                <option>恶意退款</option>
+                <option>虚假信息</option>
+              </select>
+            </div>
+          </div>
+          <label for="memo">补充说明</label>
+          <textarea id="memo" placeholder="操作原因将记入审计日志"></textarea>
+          <button type="submit" class="danger">确认执行</button>
+        </form>
+        <p class="muted">禁用后该用户无法登录与下单，历史订单不受影响；所有治理操作均留痕并可审计。</p>
+      </div>
+
+      <div class="card">
+        <h2>治理操作记录</h2>
+        <table>
+          <thead><tr><th>时间</th><th>操作人</th><th>对象</th><th>操作</th><th>原因</th></tr></thead>
+          <tbody>
+            <tr><td>03-14 10:26</td><td>王敏</td><td>U10023410</td><td>禁用</td><td>违规内容</td></tr>
+            <tr><td>03-12 16:41</td><td>李强</td><td>U10022871</td><td>禁用</td><td>恶意退款</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

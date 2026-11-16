@@ -11,10 +11,19 @@ def test_prd_keeps_original_requirement_ids():
     document = parse_docs.parse_requirements(EXAMPLES / "prd.md")
     identifiers = [item["编号"] for item in document["需求条目"]]
     assert "REQ-001-1" in identifiers
-    assert "REQ-004-2" in identifiers
+    assert "REQ-017-4" in identifiers
     assert len(identifiers) == len(set(identifiers))
     chapters = [chapter["标题"] for chapter in document["章节"]]
     assert any(chapter.startswith("REQ-001") for chapter in chapters)
+    assert any(chapter.startswith("REQ-017") for chapter in chapters)
+
+
+def test_prd_covers_three_roles():
+    document = parse_docs.parse_requirements(EXAMPLES / "prd.md")
+    chapters = [chapter["标题"] for chapter in document["章节"]]
+    assert any("终端用户端" in chapter for chapter in chapters)
+    assert any("咨询师端" in chapter for chapter in chapters)
+    assert any("管理端" in chapter for chapter in chapters)
 
 
 def test_prd_reads_bullets_and_table_rows(tmp_path):
@@ -33,12 +42,15 @@ def test_prd_reads_bullets_and_table_rows(tmp_path):
 def test_design_extracts_domain_models_and_apis():
     document = parse_docs.parse_design(EXAMPLES / "hld.md")
     names = [model["名称"] for model in document["领域模型"]]
-    assert any(name.startswith("订单 Order") for name in names)
-    fields = document["领域模型"][0]["字段"]
-    assert any(field.startswith("订单号") for field in fields)
+    assert any(name.startswith("预约订单 Order") for name in names)
+    assert any(name.startswith("可预约时段 Availability") for name in names)
+    assert any(name.startswith("入驻申请 Application") for name in names)
+    order = next(model for model in document["领域模型"] if model["名称"].startswith("预约订单 Order"))
+    assert any(field.startswith("订单号") for field in order["字段"])
     routes = {(api["方法"], api["路径"]) for api in document["接口"]}
-    assert ("GET", "/api/orders") in routes
-    assert ("POST", "/api/orders/{orderId}/ship") in routes
+    assert ("GET", "/api/consultants") in routes
+    assert ("POST", "/api/orders") in routes
+    assert ("POST", "/api/integrations/payments") in routes
 
 
 def test_design_reads_inline_api_lines(tmp_path):
@@ -52,16 +64,26 @@ def test_design_reads_inline_api_lines(tmp_path):
 
 def test_prototype_counts_page_elements():
     prototype = parse_docs.parse_prototype(EXAMPLES / "prototype")
-    assert prototype["页面数"] == 3
+    assert prototype["页面数"] == 20
     pages = {page["文件"]: page for page in prototype["页面"]}
-    listing = pages["order-list.html"]
-    assert listing["标题"] == "订单列表"
-    assert listing["元素统计"]["表单"] == 1
-    assert listing["元素统计"]["表格"] == 1
-    assert listing["元素统计"]["下拉框"] == 1
-    detail = pages["order-detail.html"]
-    assert detail["元素统计"]["输入框"] == 2
+    assert {"user/search.html", "consultant/orders.html", "admin/reports.html"} <= set(pages)
+    search = pages["user/search.html"]
+    assert search["标题"].startswith("检索咨询师")
+    assert search["元素统计"]["表单"] == 1
+    assert search["元素统计"]["表格"] == 1
+    assert search["元素统计"]["下拉框"] == 3
+    detail = pages["user/order-detail.html"]
+    assert detail["元素统计"]["表格"] == 3
+    assert detail["元素统计"]["文本域"] == 1
     assert detail["元素统计"]["按钮"] == 2
+
+
+def test_prototype_has_three_portals():
+    prototype = parse_docs.parse_prototype(EXAMPLES / "prototype")
+    files = [page["文件"] for page in prototype["页面"]]
+    assert len([name for name in files if name.startswith("user/")]) == 7
+    assert len([name for name in files if name.startswith("consultant/")]) == 6
+    assert len([name for name in files if name.startswith("admin/")]) == 6
 
 
 def test_analysis_bundle_keeps_all_three_inputs():

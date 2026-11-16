@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>个人中心 - 咨询师预约平台</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <strong>咨询师预约平台</strong>
+    <nav>
+      <a href="index.html">首页</a>
+      <a href="search.html">找咨询师</a>
+      <a href="my-orders.html">我的预约</a>
+      <a href="profile.html" class="active">个人中心</a>
+    </nav>
+    <span class="who">138****6688 · <a href="profile.html">退出</a></span>
+  </header>
+
+  <main class="main">
+    <h1>个人中心</h1>
+
+    <div class="tabs">
+      <a href="profile.html" class="active">基本资料</a>
+      <a href="profile.html">我的收藏</a>
+      <a href="profile.html">安全设置</a>
+      <a href="profile.html">协议与隐私</a>
+    </div>
+
+    <div class="card">
+      <h2>基本资料</h2>
+      <form>
+        <div class="row">
+          <div>
+            <label for="nick">昵称</label>
+            <input id="nick" type="text" value="小林" />
+          </div>
+          <div>
+            <label for="mobile">手机号</label>
+            <input id="mobile" type="text" value="138****6688" />
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label for="email">邮箱</label>
+            <input id="email" type="text" value="lin@example.com" />
+          </div>
+          <div>
+            <label for="city">所在城市</label>
+            <input id="city" type="text" value="杭州" />
+          </div>
+          <div>
+            <label>&nbsp;</label>
+            <button type="submit">保存资料</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="card">
+      <h2>更换手机号</h2>
+      <form>
+        <div class="row">
+          <div>
+            <label for="newmobile">新手机号</label>
+            <input id="newmobile" type="text" placeholder="输入新手机号" />
+          </div>
+          <div>
+            <label for="code">验证码</label>
+            <input id="code" type="text" placeholder="6 位验证码" />
+          </div>
+          <div>
+            <label>&nbsp;</label>
+            <button type="submit">获取验证码</button>
+            <button type="button" class="ghost">确认更换</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="card">
+      <h2>我的收藏</h2>
+      <table>
+        <thead><tr><th>咨询师</th><th>领域</th><th>评分</th><th>操作</th></tr></thead>
+        <tbody>
+          <tr><td><a href="consultant-detail.html">李文静</a></td><td>职业规划</td><td>4.9</td><td><a href="consultant-detail.html">预约</a></td></tr>
+          <tr><td><a href="consultant-detail.html">周砚秋</a></td><td>情绪心理</td><td>4.8</td><td><a href="consultant-detail.html">预约</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>协议与隐私</h2>
+      <ul>
+        <li><a href="profile.html">平台服务协议</a></li>
+        <li><a href="profile.html">隐私政策</a></li>
+        <li><a href="profile.html">个人信息导出</a></li>
+        <li><a href="profile.html">注销账号</a></li>
+      </ul>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>预约下单 - 咨询师预约平台</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <strong>咨询师预约平台</strong>
+    <nav>
+      <a href="index.html">首页</a>
+      <a href="search.html">找咨询师</a>
+      <a href="my-orders.html">我的预约</a>
+      <a href="profile.html">个人中心</a>
+    </nav>
+    <span class="who">138****6688 · <a href="profile.html">退出</a></span>
+  </header>
+
+  <main class="main">
+    <h1>预约咨询</h1>
+
+    <div class="steps">
+      <div class="active">1 选择时段</div>
+      <div>2 填写信息</div>
+      <div>3 支付</div>
+      <div>4 完成</div>
+    </div>
+
+    <div class="card">
+      <h2>咨询师</h2>
+      <p><a href="consultant-detail.html">李文静</a> · 资深职业规划师 · <span class="badge">评分 4.9</span></p>
+      <h2>选择时段</h2>
+      <form>
+        <div class="row">
+          <div>
+            <label for="day">日期</label>
+            <select id="day">
+              <option>03-18 今天</option>
+              <option>03-19 明天</option>
+              <option>03-21 周六</option>
+            </select>
+          </div>
+          <div>
+            <label for="slot">时间</label>
+            <select id="slot">
+              <option>15:00 - 15:30</option>
+              <option>16:30 - 17:00</option>
+              <option>19:30 - 20:00</option>
+            </select>
+          </div>
+          <div>
+            <label for="mode">咨询方式</label>
+            <select id="mode">
+              <option>线上视频</option>
+              <option>语音</option>
+            </select>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="card">
+      <h2>咨询信息</h2>
+      <form>
+        <div class="row">
+          <div>
+            <label for="subject">咨询主题</label>
+            <input id="subject" type="text" placeholder="如：转行产品经理" />
+          </div>
+          <div>
+            <label for="phone">联系手机号</label>
+            <input id="phone" type="text" value="138****6688" />
+          </div>
+        </div>
+        <label for="desc">问题描述</label>
+        <textarea id="desc" placeholder="请简要描述当前情况与希望解决的问题，便于咨询师提前准备"></textarea>
+        <div class="row">
+          <div>
+            <label for="coupon">优惠券</label>
+            <select id="coupon">
+              <option>不使用优惠券</option>
+              <option>新人立减 ¥30</option>
+            </select>
+          </div>
+          <div>
+            <label>&nbsp;</label>
+            <button type="submit">提交订单并支付</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="card">
+      <h2>费用明细</h2>
+      <table>
+        <tbody>
+          <tr><td>咨询单价</td><td>¥399</td></tr>
+          <tr><td>优惠金额</td><td>-¥30</td></tr>
+          <tr><td>平台服务费</td><td>¥20</td></tr>
+          <tr><td><strong>应付金额</strong></td><td><strong>¥389</strong></td></tr>
+        </tbody>
+      </table>
+      <p class="muted">支付方式：微信支付 / 支付宝，支付成功后咨询师将收到预约通知。</p>
+    </div>
+  </main>
+</body>
+</html>

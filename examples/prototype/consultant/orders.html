@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>预约管理 - 咨询师预约平台</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <h2>咨询师工作台</h2>
+      <ul>
+        <li><a href="index.html">工作台</a></li>
+        <li><a href="application.html">入驻申请</a></li>
+        <li><a href="profile.html">档案维护</a></li>
+        <li><a href="schedule.html">档期管理</a></li>
+        <li><a href="orders.html" class="active">预约管理</a></li>
+        <li><a href="settlements.html">收入结算</a></li>
+      </ul>
+    </aside>
+    <main class="main">
+      <h1>预约管理</h1>
+
+      <div class="tabs">
+        <a href="orders.html" class="active">待确认</a>
+        <a href="orders.html">已确认</a>
+        <a href="orders.html">进行中</a>
+        <a href="orders.html">已完成</a>
+        <a href="orders.html">已取消</a>
+      </div>
+
+      <div class="card">
+        <form>
+          <div class="row">
+            <div>
+              <label for="no">订单号</label>
+              <input id="no" type="text" placeholder="输入订单号" />
+            </div>
+            <div>
+              <label for="range">预约时间</label>
+              <input id="range" type="text" placeholder="开始 - 结束" />
+            </div>
+            <div>
+              <label>&nbsp;</label>
+              <button type="submit">查询</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="card">
+        <h2>待确认订单</h2>
+        <table>
+          <thead><tr><th>订单号</th><th>用户</th><th>预约时间</th><th>主题</th><th>状态</th><th>操作</th></tr></thead>
+          <tbody>
+            <tr><td>ORD20240318001</td><td>138****6688</td><td>03-18 15:00</td><td>转行产品经理</td>
+              <td><span class="badge">待确认</span></td>
+              <td><a href="orders.html">确认</a> · <a href="orders.html">拒绝</a></td></tr>
+            <tr><td>ORD20240319003</td><td>139****2231</td><td>03-19 10:30</td><td>简历排版</td>
+              <td><span class="badge">待确认</span></td>
+              <td><a href="orders.html">确认</a> · <a href="orders.html">拒绝</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h2>进行中与待开始</h2>
+        <table>
+          <thead><tr><th>订单号</th><th>用户</th><th>预约时间</th><th>方式</th><th>状态</th><th>操作</th></tr></thead>
+          <tbody>
+            <tr><td>ORD20240318004</td><td>137****9012</td><td>03-18 10:00</td><td>线上视频</td>
+              <td><span class="badge">进行中</span></td>
+              <td><a href="orders.html">提交咨询小结</a></td></tr>
+            <tr><td>ORD20240318008</td><td>135****4480</td><td>03-18 19:30</td><td>语音</td>
+              <td><span class="badge">已确认</span></td>
+              <td><a href="orders.html">开始咨询</a> · <a href="orders.html">申请改期</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h2>提交咨询小结</h2>
+        <form>
+          <div class="row">
+            <div>
+              <label for="order">订单号</label>
+              <input id="order" type="text" value="ORD20240318004" />
+            </div>
+            <div>
+              <label for="dur">实际时长</label>
+              <select id="dur"><option>30 分钟</option><option>不足 30 分钟</option></select>
+            </div>
+          </div>
+          <label for="summary">咨询小结（对用户可见）</label>
+          <textarea id="summary">本次重点梳理了目标岗位要求与现有经历的差距，建议按 STAR 结构重写两段项目描述。</textarea>
+          <button type="submit">完成咨询</button>
+        </form>
+      </div>
+
+      <div class="card">
+        <h2>拒绝订单</h2>
+        <form>
+          <div class="row">
+            <div>
+              <label for="reason">拒绝原因</label>
+              <select id="reason">
+                <option>该时段已被占用</option>
+                <option>超出擅长领域</option>
+                <option>资料信息不完整</option>
+              </select>
+            </div>
+            <div>
+              <label for="note">补充说明</label>
+              <input id="note" type="text" placeholder="选填" />
+            </div>
+            <div>
+              <label>&nbsp;</label>
+              <button type="submit" class="danger">确认拒绝</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

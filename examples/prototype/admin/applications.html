@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>入驻审核 - 咨询师预约平台</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <h2>平台管理端</h2>
+      <ul>
+        <li><a href="index.html">运营看板</a></li>
+        <li><a href="applications.html" class="active">入驻审核</a></li>
+        <li><a href="categories.html">分类与标签</a></li>
+        <li><a href="users.html">用户管理</a></li>
+        <li><a href="orders.html">订单监控</a></li>
+        <li><a href="reports.html">举报处理</a></li>
+      </ul>
+    </aside>
+    <main class="main">
+      <h1>入驻审核</h1>
+
+      <div class="tabs">
+        <a href="applications.html" class="active">待审核（18）</a>
+        <a href="applications.html">已通过</a>
+        <a href="applications.html">已驳回</a>
+      </div>
+
+      <div class="card">
+        <form>
+          <div class="row">
+            <div>
+              <label for="cat">擅长分类</label>
+              <select id="cat">
+                <option>全部分类</option>
+                <option>职业发展</option>
+                <option>情绪心理</option>
+                <option>家庭教育</option>
+              </select>
+            </div>
+            <div>
+              <label for="range">提交时间</label>
+              <input id="range" type="text" placeholder="开始 - 结束" />
+            </div>
+            <div>
+              <label for="kw">姓名 / 手机号</label>
+              <input id="kw" type="text" placeholder="输入关键字" />
+            </div>
+            <div>
+              <label>&nbsp;</label>
+              <button type="submit">查询</button>
+              <button type="button" class="ghost">批量通过</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="card">
+        <table>
+          <thead>
+            <tr><th>申请编号</th><th>姓名</th><th>执业身份</th><th>擅长领域</th><th>提交时间</th><th>状态</th><th>操作</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>APP20240318001</td><td>高远</td><td>企业 HR</td><td>面试辅导、职场沟通</td>
+              <td>03-18 09:20</td><td><span class="badge">待审核</span></td>
+              <td><a href="applications.html">查看</a> · <a href="applications.html">通过</a></td>
+            </tr>
+            <tr>
+              <td>APP20240317006</td><td>林岫</td><td>职业规划师</td><td>转行咨询、简历优化</td>
+              <td>03-17 16:48</td><td><span class="badge">待审核</span></td>
+              <td><a href="applications.html">查看</a> · <a href="applications.html">通过</a></td>
+            </tr>
+            <tr>
+              <td>APP20240316012</td><td>孙澜</td><td>心理咨询师</td><td>谈判技巧、情绪管理</td>
+              <td>03-16 11:05</td><td><span class="badge">待审核</span></td>
+              <td><a href="applications.html">查看</a> · <a href="applications.html">通过</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h2>申请详情 · APP20240318001</h2>
+        <table>
+          <tbody>
+            <tr><td>姓名</td><td>高远</td></tr>
+            <tr><td>手机号</td><td>136****7788</td></tr>
+            <tr><td>执业身份</td><td>企业 HR（8 年）</td></tr>
+            <tr><td>擅长领域</td><td>面试辅导、职场沟通</td></tr>
+            <tr><td>期望定价</td><td>¥299 / 次</td></tr>
+            <tr><td>个人简介</td><td>八年人力资源与招聘经验，主导过技术岗面试体系搭建与新人培养。</td></tr>
+            <tr><td>资质文件</td><td><a href="applications.html">credential-2024.pdf</a>（1.4 MB）</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h2>历史申请记录</h2>
+        <table>
+          <thead><tr><th>申请编号</th><th>提交时间</th><th>结果</th><th>说明</th></tr></thead>
+          <tbody>
+            <tr><td>APP20231105003</td><td>2023-11-05 10:12</td><td><span class="badge">已驳回</span></td><td>资质材料不完整</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h2>审核操作</h2>
+        <form>
+          <div class="row">
+            <div>
+              <label for="result">审核结果</label>
+              <select id="result">
+                <option>通过</option>
+                <option>驳回</option>
+              </select>
+            </div>
+            <div>
+              <label for="reason">驳回原因</label>
+              <select id="reason">
+                <option>资质材料不完整</option>
+                <option>执业身份无法核验</option>
+                <option>擅长领域不在平台范围</option>
+              </select>
+            </div>
+          </div>
+          <label for="note">补充说明</label>
+          <textarea id="note" placeholder="选填，审核结果会随通知发送给申请人"></textarea>
+          <button type="submit">提交审核</button>
+          <button type="button" class="ghost">暂存</button>
+        </form>
+        <p class="muted">审核结果将自动通知申请人，通过后自动开通咨询师端权限。</p>
+      </div>
+
+      <div class="card">
+        <h2>审核操作记录</h2>
+        <table>
+          <thead><tr><th>时间</th><th>操作人</th><th>申请编号</th><th>结果</th></tr></thead>
+          <tbody>
+            <tr><td>03-17 15:30</td><td>王敏</td><td>APP20240317001</td><td><span class="badge">已通过</span></td></tr>
+            <tr><td>03-17 15:32</td><td>王敏</td><td>APP20240317004</td><td><span class="badge">已驳回</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

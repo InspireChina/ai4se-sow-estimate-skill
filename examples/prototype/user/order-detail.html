@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>预约详情 - 咨询师预约平台</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <strong>咨询师预约平台</strong>
+    <nav>
+      <a href="index.html">首页</a>
+      <a href="search.html">找咨询师</a>
+      <a href="my-orders.html" class="active">我的预约</a>
+      <a href="profile.html">个人中心</a>
+    </nav>
+    <span class="who">138****6688 · <a href="profile.html">退出</a></span>
+  </header>
+
+  <main class="main">
+    <h1>预约详情</h1>
+    <p class="muted">订单号 ORD20240318001 · 下单时间 2024-03-18 10:22</p>
+
+    <div class="card">
+      <h2>订单状态</h2>
+      <table>
+        <thead><tr><th>节点</th><th>时间</th><th>说明</th></tr></thead>
+        <tbody>
+          <tr><td>已下单</td><td>03-18 10:22</td><td>订单创建成功</td></tr>
+          <tr><td>已支付</td><td>03-18 10:23</td><td>微信支付 ¥389</td></tr>
+          <tr><td>已确认</td><td>03-18 10:31</td><td>咨询师李文静已确认预约</td></tr>
+          <tr><td>待开始</td><td>03-18 15:00</td><td>预计 30 分钟</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>咨询信息</h2>
+      <table>
+        <tbody>
+          <tr><td>咨询师</td><td><a href="consultant-detail.html">李文静</a></td></tr>
+          <tr><td>咨询时间</td><td>03-18 15:00 - 15:30</td></tr>
+          <tr><td>咨询方式</td><td>线上视频</td></tr>
+          <tr><td>咨询主题</td><td>转行产品经理</td></tr>
+          <tr><td>问题描述</td><td>后端开发 5 年，希望转向产品方向，缺少相关项目经验。</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>费用明细</h2>
+      <table>
+        <tbody>
+          <tr><td>咨询单价</td><td>¥399</td></tr>
+          <tr><td>优惠金额</td><td>-¥30</td></tr>
+          <tr><td>平台服务费</td><td>¥20</td></tr>
+          <tr><td><strong>实付金额</strong></td><td><strong>¥389</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>沟通记录</h2>
+      <ul>
+        <li>03-18 10:31 咨询师李文静：您好，已收到您的预约，请提前整理好简历。</li>
+        <li>03-18 10:35 用户：我稍后把现有简历发您。</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>评价咨询师</h2>
+      <form>
+        <div class="row">
+          <div>
+            <label for="score">总评分</label>
+            <select id="score">
+              <option>5 星</option><option>4 星</option><option>3 星</option>
+            </select>
+          </div>
+          <div>
+            <label for="pro">专业度</label>
+            <select id="pro"><option>5 星</option><option>4 星</option></select>
+          </div>
+          <div>
+            <label for="resp">响应速度</label>
+            <select id="resp"><option>5 星</option><option>4 星</option></select>
+          </div>
+          <div>
+            <label for="comm">沟通体验</label>
+            <select id="comm"><option>5 星</option><option>4 星</option></select>
+          </div>
+        </div>
+        <label for="content">评价内容</label>
+        <textarea id="content" placeholder="说说这次咨询的收获"></textarea>
+        <button type="submit">提交评价</button>
+        <button type="button" class="ghost">取消订单</button>
+      </form>
+    </div>
+  </main>
+</body>
+</html>

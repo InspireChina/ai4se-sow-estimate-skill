@@ -50,11 +50,12 @@ python scripts/build_estimate.py \
     --estimate examples/estimate.sample.json \
     --baseline "Inspire 估算基线 v0.1.xlsx" \
     --template "Inspire 工作量评估模版 v0.1.xlsx" \
-    --out examples/output/工作量评估-订单中心.xlsx \
-    --report examples/output/工作量评估-订单中心.md
+    --out examples/output/工作量评估-咨询师预约平台.xlsx \
+    --report examples/output/工作量评估-咨询师预约平台.md
 ```
 
 样例产出见 `examples/output/`：`examples/estimate.sample.json` 里的任务行对应的评估工作簿与报告。
+样例项目为「咨询师预约平台」，覆盖终端用户端、咨询师端与管理端三个角色。
 具体人天以基线工作簿当前取值为准。
 
 ## 基线维护

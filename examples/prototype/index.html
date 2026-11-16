@@ -1,22 +1,62 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  <title>订单中心</title>
-  <link rel="stylesheet" href="assets/app.css">
+  <meta charset="utf-8" />
+  <title>咨询师预约平台</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>订单中心</h1>
-  <nav>
-    <a href="index.html">首页</a>
-    <a href="order-list.html">订单列表</a>
-    <a href="order-detail.html">订单详情</a>
-  </nav>
-  <h2>快捷入口</h2>
-  <ul>
-    <li><a href="order-list.html">查询订单</a></li>
-    <li><a href="order-detail.html">查看订单详情</a></li>
-  </ul>
-  <script src="assets/app.js"></script>
+  <div class="layout">
+    <aside class="sidebar">
+      <h2>咨询师预约平台</h2>
+      <ul>
+        <li><a href="user/index.html" class="active">终端用户端</a></li>
+        <li><a href="consultant/index.html">咨询师端</a></li>
+        <li><a href="admin/index.html">管理端</a></li>
+      </ul>
+      <p class="muted">原型入口，按角色进入对应工作区。</p>
+    </aside>
+    <main class="main">
+      <h1>咨询师预约平台</h1>
+      <p class="muted">面向终端用户、咨询师与平台管理员的三端 Web 应用。</p>
+
+      <div class="card">
+        <h2>终端用户端</h2>
+        <ul>
+          <li><a href="user/index.html">首页与咨询师推荐</a></li>
+          <li><a href="user/search.html">咨询师检索与筛选</a></li>
+          <li><a href="user/consultant-detail.html">咨询师主页</a></li>
+          <li><a href="user/booking.html">预约下单</a></li>
+          <li><a href="user/my-orders.html">我的预约</a></li>
+          <li><a href="user/order-detail.html">预约详情与评价</a></li>
+          <li><a href="user/profile.html">个人中心</a></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>咨询师端</h2>
+        <ul>
+          <li><a href="consultant/index.html">工作台</a></li>
+          <li><a href="consultant/application.html">入驻申请</a></li>
+          <li><a href="consultant/profile.html">档案维护</a></li>
+          <li><a href="consultant/schedule.html">档期管理</a></li>
+          <li><a href="consultant/orders.html">预约管理</a></li>
+          <li><a href="consultant/settlements.html">收入结算</a></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>管理端</h2>
+        <ul>
+          <li><a href="admin/index.html">运营看板</a></li>
+          <li><a href="admin/applications.html">入驻审核</a></li>
+          <li><a href="admin/categories.html">分类与标签</a></li>
+          <li><a href="admin/users.html">用户管理</a></li>
+          <li><a href="admin/orders.html">订单监控</a></li>
+          <li><a href="admin/reports.html">举报处理</a></li>
+        </ul>
+      </div>
+    </main>
+  </div>
 </body>
 </html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>咨询师工作台 - 咨询师预约平台</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <h2>咨询师工作台</h2>
+      <ul>
+        <li><a href="index.html" class="active">工作台</a></li>
+        <li><a href="application.html">入驻申请</a></li>
+        <li><a href="profile.html">档案维护</a></li>
+        <li><a href="schedule.html">档期管理</a></li>
+        <li><a href="orders.html">预约管理</a></li>
+        <li><a href="settlements.html">收入结算</a></li>
+      </ul>
+      <p class="muted">李文静 · 已认证</p>
+    </aside>
+    <main class="main">
+      <h1>工作台</h1>
+      <p class="muted">2024-03-18 星期一 · 今日有 3 场咨询</p>
+
+      <div class="metrics">
+        <div class="metric"><div class="value">3</div><div class="label">今日咨询</div></div>
+        <div class="metric"><div class="value">42</div><div class="label">本月订单</div></div>
+        <div class="metric"><div class="value">4.9</div><div class="label">平均评分</div></div>
+        <div class="metric"><div class="value">5</div><div class="label">待处理订单</div></div>
+      </div>
+
+      <h2>待处理</h2>
+      <div class="card">
+        <table>
+          <thead><tr><th>订单号</th><th>用户</th><th>预约时间</th><th>主题</th><th>状态</th><th>操作</th></tr></thead>
+          <tbody>
+            <tr><td>ORD20240318001</td><td>138****6688</td><td>03-18 15:00</td><td>转行产品经理</td>
+              <td><span class="badge">待确认</span></td><td><a href="orders.html">确认订单</a></td></tr>
+            <tr><td>ORD20240319003</td><td>139****2231</td><td>03-19 10:30</td><td>简历排版</td>
+              <td><span class="badge">待确认</span></td><td><a href="orders.html">确认订单</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>今日日程</h2>
+      <div class="card">
+        <table>
+          <thead><tr><th>时间</th><th>用户</th><th>方式</th><th>状态</th><th>操作</th></tr></thead>
+          <tbody>
+            <tr><td>10:00 - 10:30</td><td>137****9012</td><td>线上视频</td><td><span class="badge">进行中</span></td>
+              <td><a href="orders.html">进入咨询</a></td></tr>
+            <tr><td>15:00 - 15:30</td><td>138****6688</td><td>线上视频</td><td><span class="badge">待开始</span></td>
+              <td><a href="orders.html">查看详情</a></td></tr>
+            <tr><td>19:30 - 20:00</td><td>135****4480</td><td>语音</td><td><span class="badge">待开始</span></td>
+              <td><a href="orders.html">查看详情</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>平台公告</h2>
+      <div class="card">
+        <ul>
+          <li>03-16 结算规则调整：服务费率由 5% 调整为 6%，3 月起生效。</li>
+          <li>03-12 提醒：未认证档案不展示在用户检索结果中。</li>
+        </ul>
+      </div>
+
+      <h2>常用入口</h2>
+      <div class="card">
+        <ul>
+          <li><a href="schedule.html">设置本周档期</a></li>
+          <li><a href="orders.html">处理待确认订单</a></li>
+          <li><a href="settlements.html">查看本月结算单</a></li>
+          <li><a href="profile.html">更新对外档案</a></li>
+        </ul>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

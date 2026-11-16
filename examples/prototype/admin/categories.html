@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>分类与标签 - 咨询师预约平台</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <h2>平台管理端</h2>
+      <ul>
+        <li><a href="index.html">运营看板</a></li>
+        <li><a href="applications.html">入驻审核</a></li>
+        <li><a href="categories.html" class="active">分类与标签</a></li>
+        <li><a href="users.html">用户管理</a></li>
+        <li><a href="orders.html">订单监控</a></li>
+        <li><a href="reports.html">举报处理</a></li>
+      </ul>
+    </aside>
+    <main class="main">
+      <h1>分类与标签</h1>
+
+      <div class="tabs">
+        <a href="categories.html" class="active">咨询分类</a>
+        <a href="categories.html">擅长标签</a>
+        <a href="categories.html">变更日志</a>
+      </div>
+
+      <div class="card">
+        <h2>分类树</h2>
+        <table>
+          <thead><tr><th>分类</th><th>上级分类</th><th>排序</th><th>咨询师数</th><th>订单量</th><th>状态</th><th>操作</th></tr></thead>
+          <tbody>
+            <tr><td>职业发展</td><td>—</td><td>1</td><td>326</td><td>1 486</td><td><span class="badge">启用</span></td>
+              <td><a href="categories.html">编辑</a> · <a href="categories.html">停用</a></td></tr>
+            <tr><td>情绪心理</td><td>—</td><td>2</td><td>218</td><td>842</td><td><span class="badge">启用</span></td>
+              <td><a href="categories.html">编辑</a> · <a href="categories.html">停用</a></td></tr>
+            <tr><td>家庭教育</td><td>—</td><td>3</td><td>154</td><td>561</td><td><span class="badge">启用</span></td>
+              <td><a href="categories.html">编辑</a> · <a href="categories.html">停用</a></td></tr>
+            <tr><td>法律咨询</td><td>—</td><td>4</td><td>97</td><td>297</td><td><span class="badge">启用</span></td>
+              <td><a href="categories.html">编辑</a> · <a href="categories.html">停用</a></td>
+              <td><span class="muted">停用前需确认影响范围</span></td></tr>
+            <tr><td>简历优化</td><td>职业发展</td><td>1</td><td>187</td><td>742</td><td><span class="badge">启用</span></td>
+              <td><a href="categories.html">编辑</a> · <a href="categories.html">停用</a></td></tr>
+            <tr><td>面试辅导</td><td>职业发展</td><td>2</td><td>121</td><td>498</td><td><span class="badge">启用</span></td>
+              <td><a href="categories.html">编辑</a> · <a href="categories.html">停用</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h2>新增 / 编辑分类</h2>
+        <form>
+          <div class="row">
+            <div>
+              <label for="name">分类名称</label>
+              <input id="name" type="text" placeholder="如：职业发展" />
+            </div>
+            <div>
+              <label for="parent">上级分类</label>
+              <select id="parent">
+                <option>顶级分类</option>
+                <option>职业发展</option>
+                <option>情绪心理</option>
+              </select>
+            </div>
+            <div>
+              <label for="sort">排序</label>
+              <input id="sort" type="text" value="5" />
+            </div>
+            <div>
+              <label for="state">状态</label>
+              <select id="state"><option>启用</option><option>停用</option></select>
+            </div>
+            <div>
+              <label>&nbsp;</label>
+              <button type="submit">保存</button>
+            </div>
+          </div>
+        </form>
+        <p class="muted">停用分类需二次确认，影响范围包含已绑定该分类的咨询师档案与历史订单展示。</p>
+      </div>
+
+      <div class="card">
+        <h2>擅长标签</h2>
+        <table>
+          <thead><tr><th>标签</th><th>使用次数</th><th>关联分类</th><th>状态</th><th>操作</th></tr></thead>
+          <tbody>
+            <tr><td>职业规划</td><td>268</td><td>职业发展</td><td><span class="badge">启用</span></td>
+              <td><a href="categories.html">编辑</a> · <a href="categories.html">停用</a></td></tr>
+            <tr><td>简历优化</td><td>187</td><td>职业发展</td><td><span class="badge">启用</span></td>
+              <td><a href="categories.html">编辑</a> · <a href="categories.html">停用</a></td></tr>
+            <tr><td>压力管理</td><td>142</td><td>情绪心理</td><td><span class="badge">启用</span></td>
+              <td><a href="categories.html">编辑</a> · <a href="categories.html">停用</a></td></tr>
+            <tr><td>亲子沟通</td><td>98</td><td>家庭教育</td><td><span class="badge">启用</span></td>
+              <td><a href="categories.html">编辑</a> · <a href="categories.html">停用</a></td></tr>
+            <tr><td>劳动仲裁</td><td>61</td><td>法律咨询</td><td><span class="badge">停用</span></td>
+              <td><a href="categories.html">编辑</a> · <a href="categories.html">启用</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h2>变更日志</h2>
+        <table>
+          <thead><tr><th>时间</th><th>操作人</th><th>对象</th><th>操作</th><th>说明</th></tr></thead>
+          <tbody>
+            <tr><td>03-15 14:22</td><td>王敏</td><td>法律咨询 / 劳动仲裁</td><td>停用</td><td>调整分类结构</td></tr>
+            <tr><td>03-10 09:41</td><td>王敏</td><td>面试辅导</td><td>新增</td><td>补充子分类</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

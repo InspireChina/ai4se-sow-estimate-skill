@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>运营看板 - 咨询师预约平台</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <h2>平台管理端</h2>
+      <ul>
+        <li><a href="index.html" class="active">运营看板</a></li>
+        <li><a href="applications.html">入驻审核</a></li>
+        <li><a href="categories.html">分类与标签</a></li>
+        <li><a href="users.html">用户管理</a></li>
+        <li><a href="orders.html">订单监控</a></li>
+        <li><a href="reports.html">举报处理</a></li>
+      </ul>
+      <p class="muted">管理员 · 王敏</p>
+    </aside>
+    <main class="main">
+      <h1>运营看板</h1>
+      <p class="muted">统计区间 2024-03-01 至 2024-03-18 · 对比上一周期</p>
+
+      <div class="metrics">
+        <div class="metric"><div class="value">18 420</div><div class="label">用户数（+6.2%）</div></div>
+        <div class="metric"><div class="value">1 032</div><div class="label">咨询师数（+3.1%）</div></div>
+        <div class="metric"><div class="value">3 186</div><div class="label">订单量（+8.4%）</div></div>
+        <div class="metric"><div class="value">¥1 264 500</div><div class="label">成交金额（+9.1%）</div></div>
+        <div class="metric"><div class="value">1.8%</div><div class="label">退款率（+0.3%）</div></div>
+      </div>
+
+      <h2>趋势</h2>
+      <div class="card">
+        <table>
+          <thead><tr><th>日期</th><th>订单量</th><th>成交金额</th><th>退款单数</th><th>异常提示</th></tr></thead>
+          <tbody>
+            <tr><td>03-15</td><td>212</td><td>¥86 300</td><td>3</td><td>退款率高于阈值</td></tr>
+            <tr><td>03-16</td><td>198</td><td>¥79 100</td><td>4</td><td>—</td></tr>
+            <tr><td>03-17</td><td>176</td><td>¥71 800</td><td>2</td><td>—</td></tr>
+            <tr><td>03-18</td><td>224</td><td>¥92 400</td><td>5</td><td>支付回调失败率 2.1%</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>分类分布</h2>
+      <div class="card">
+        <table>
+          <thead><tr><th>分类</th><th>订单量</th><th>成交金额</th><th>咨询师数</th><th>占比</th></tr></thead>
+          <tbody>
+            <tr><td>职业发展</td><td>1 486</td><td>¥592 300</td><td>326</td><td>46.7%</td></tr>
+            <tr><td>情绪心理</td><td>842</td><td>¥330 800</td><td>218</td><td>26.4%</td></tr>
+            <tr><td>家庭教育</td><td>561</td><td>¥201 500</td><td>154</td><td>17.6%</td></tr>
+            <tr><td>法律咨询</td><td>297</td><td>¥139 900</td><td>97</td><td>9.3%</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>咨询师活跃度排行</h2>
+      <div class="card">
+        <table>
+          <thead><tr><th>排名</th><th>咨询师</th><th>分类</th><th>本月订单</th><th>评分</th><th>状态</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>李文静</td><td>职业发展</td><td>42</td><td>4.9</td><td><span class="badge">正常</span></td></tr>
+            <tr><td>2</td><td>周砚秋</td><td>情绪心理</td><td>38</td><td>4.8</td><td><span class="badge">正常</span></td></tr>
+            <tr><td>3</td><td>陈舒</td><td>家庭教育</td><td>35</td><td>4.7</td><td><span class="badge">正常</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>待办</h2>
+      <div class="card">
+        <ul>
+          <li><a href="applications.html">18 份入驻申请待审核</a></li>
+          <li><a href="reports.html">7 条举报待处理</a></li>
+          <li><a href="orders.html">5 笔订单存在支付异常</a></li>
+        </ul>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
