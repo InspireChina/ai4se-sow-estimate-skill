@@ -16,8 +16,6 @@
 # Python, uv, test, and coverage state
 .venv/
 **/.venv/
-.ai-sow-tools/
-**/.ai-sow-tools/
 __pycache__/
 **/__pycache__/
 .pytest_cache/
@@ -30,28 +28,20 @@ __pycache__/
 coverage.xml
 htmlcov/
 
-# Local runtime, dependency, cache, and scratch directories
+# Local scratch directories
 .codex-work/
 .codex_spreadsheet_work/
 .prototype-worktrees/
 .research-worktrees/
 .worktrees/
 .superpowers/
-docs/superpowers/
-outputs/
-**/.codex-tmp/
-**/.codex_spreadsheet_work_*/
+.work/
 **/.work/
 **/.work_*/
 **/fontcache/
 **/node_modules/
 **/node_modules
 
-# Generated AI SOW runtime can contain customer-derived material. This repository
-# ignores test-fixture runtime only; see the plugin README before choosing what a
-# user project should version.
-.ai-sow/runtime/
-
-# Local spreadsheet comparison candidates and diagnostics
-/SOW估算与生成模板_v1.3_Table版.xlsx
-/*.inspect.ndjson
+# Generated estimation output may contain customer-derived material.
+outputs/
+**/outputs/
