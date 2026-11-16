@@ -94,6 +94,101 @@ def test_template_header_uses_the_task_type_column():
         workbook.close()
 
 
+def test_same_requirement_is_merged_in_one_cell(tmp_path):
+    """一条需求对应多个任务说明时，需求列合并成一个单元格。"""
+    requirement = "用户可按状态筛选查看自己的预约订单"
+    output = _build(
+        tmp_path,
+        [
+            {
+                "需求": requirement,
+                "需求出处": "PRD 3. REQ-004 我的预约与订单管理",
+                "任务说明": "实现我的预约页",
+                "子任务类型": "普通查询列表页新建",
+            },
+            {
+                "需求": requirement,
+                "需求出处": "PRD 3. REQ-004 我的预约与订单管理",
+                "任务说明": "实现订单查询接口",
+                "子任务类型": "普通查询接口新建",
+            },
+            {
+                "需求": requirement,
+                "需求出处": "PRD 3. REQ-004 我的预约与订单管理",
+                "任务说明": "实现订单详情接口",
+                "子任务类型": "普通查询接口新建",
+            },
+        ],
+    )
+    workbook = openpyxl.load_workbook(output)
+    try:
+        detail = workbook["基线任务类型"]
+        assert [str(item) for item in detail.merged_cells.ranges] == ["A2:A4"]
+        assert detail["A2"].value == requirement
+        assert detail["A3"].value is None
+        assert detail["A4"].value is None
+        # 合并只发生在需求列，其余列逐行保留
+        assert detail["B2"].value == "实现我的预约页"
+        assert detail["B4"].value == "实现订单详情接口"
+        assert detail["C3"].value == "后端-接口-普通查询接口新建"
+    finally:
+        workbook.close()
+
+
+def test_different_requirements_are_not_merged(tmp_path):
+    output = _build(
+        tmp_path,
+        [
+            {"需求": "需求一", "子任务类型": "普通查询列表页新建"},
+            {"需求": "需求二", "子任务类型": "普通查询接口新建"},
+        ],
+    )
+    workbook = openpyxl.load_workbook(output)
+    try:
+        detail = workbook["基线任务类型"]
+        assert not list(detail.merged_cells.ranges)
+        assert detail["A2"].value == "需求一"
+        assert detail["A3"].value == "需求二"
+    finally:
+        workbook.close()
+
+
+def test_example_estimate_merges_requirement_groups(tmp_path):
+    """样例里一条需求对应多个任务说明，产出文件按需求合并。"""
+    tasks = _example_tasks()
+    output = _build(tmp_path, tasks)
+    workbook = openpyxl.load_workbook(output)
+    try:
+        detail = workbook["基线任务类型"]
+        groups = build_estimate.requirement_groups(
+            build_estimate.compute_rows({"任务": tasks}, _catalog())[0]
+        )
+        expected = {
+            f"A{group[0].index + 1}:A{group[-1].index + 1}"
+            for group in groups
+            if len(group) > 1
+        }
+        assert expected
+        assert {str(item) for item in detail.merged_cells.ranges} == expected
+    finally:
+        workbook.close()
+
+
+def test_report_shows_the_requirement_once_per_group(tmp_path):
+    tasks = [
+        {"需求": "同一条需求", "子任务类型": "普通查询列表页新建"},
+        {"需求": "同一条需求", "子任务类型": "普通查询接口新建"},
+        {"需求": "另一条需求", "子任务类型": "普通查询接口新建"},
+    ]
+    report = tmp_path / "报告.md"
+    _build(tmp_path, tasks, report=True)
+    text = report.read_text(encoding="utf-8")
+    detail_lines = [line for line in text.splitlines() if line.startswith("| 1 |") or line.startswith("| 2 |") or line.startswith("| 3 |")]
+    assert "| 1 | 同一条需求 |" in detail_lines[0]
+    assert "| 2 | 〃 |" in detail_lines[1]
+    assert "| 3 | 另一条需求 |" in detail_lines[2]
+
+
 def test_template_file_is_not_modified(tmp_path):
     before = TEMPLATE.read_bytes()
     _build(tmp_path, _example_tasks())

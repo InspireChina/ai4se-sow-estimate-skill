@@ -34,6 +34,9 @@ DETAIL_SHEET = "基线任务类型"
 SUMMARY_SHEET = "项目汇总"
 PHASES = ("设计", "开发", "测试")
 
+# 需求列：一条需求可以对应多个任务说明，需求文字相同的连续任务行合并成一个单元格。
+REQUIREMENT_COLUMN = 1
+
 # 集成大类不叠加修正系数：基线已按对接复杂度分档，再乘系数会重复计算。
 INTEGRATION_GROUP = "集成"
 
@@ -194,6 +197,39 @@ def _note_text(row: EstimateRow) -> str:
     return "；".join(parts)
 
 
+def requirement_groups(rows: "list[EstimateRow]") -> "list[list[EstimateRow]]":
+    """按需求文字把连续的任务行分组：一条需求可以对应多个任务说明。"""
+    groups: list[list[EstimateRow]] = []
+    for row in rows:
+        if groups and groups[-1][0].requirement == row.requirement:
+            groups[-1].append(row)
+        else:
+            groups.append([row])
+    return groups
+
+
+def _merge_requirement_cells(detail, rows: "list[EstimateRow]") -> "list[str]":
+    """合并需求列：同一需求的多条任务说明共用一个需求单元格。"""
+    merged: list[str] = []
+    for group in requirement_groups(rows):
+        if len(group) < 2:
+            continue
+        start_row = group[0].index + 1
+        end_row = group[-1].index + 1
+        detail.merge_cells(
+            start_row=start_row,
+            start_column=REQUIREMENT_COLUMN,
+            end_row=end_row,
+            end_column=REQUIREMENT_COLUMN,
+        )
+        for excel_row in range(start_row, end_row + 1):
+            cell = detail.cell(row=excel_row, column=REQUIREMENT_COLUMN)
+            cell.border = BODY_BORDER
+            cell.alignment = BODY_ALIGNMENT
+        merged.append(f"A{start_row}:A{end_row}")
+    return merged
+
+
 def compute_rows(payload: dict, catalog: Baseline) -> "tuple[list[EstimateRow], list[str]]":
     """把估算结果换算成人天行，并收集告警。"""
     warnings: list[str] = []
@@ -280,6 +316,7 @@ def write_workbook(
             cell.border = BODY_BORDER
             if column in (4, 5, 6):
                 cell.number_format = "0.0"
+    _merge_requirement_cells(detail, rows)
     delivery = _required_parameter(catalog, "交付开销系数")
     management = _required_parameter(catalog, "项目管理开销系数")
     if rows:
@@ -335,8 +372,37 @@ def verify_workbook(output: Path, rows: "list[EstimateRow]") -> "list[str]":
             for coordinate in ("B2", "B3", "B4", "B5", "B6", "B7"):
                 if summary[coordinate].value != 0:
                     problems.append(f"空估算时汇总 {coordinate} 应为 0")
+        problems.extend(_verify_requirement_merges(detail, rows))
     finally:
         workbook.close()
+    return problems
+
+
+def _verify_requirement_merges(detail, rows: "list[EstimateRow]") -> "list[str]":
+    """复读校验需求列的合并结果：同一需求只出现一次，其余单元格留空。"""
+    problems: list[str] = []
+    expected: dict[str, str] = {}
+    for group in requirement_groups(rows):
+        if len(group) < 2:
+            continue
+        start_row = group[0].index + 1
+        end_row = group[-1].index + 1
+        expected[f"A{start_row}:A{end_row}"] = group[0].requirement
+    actual = {str(item) for item in detail.merged_cells.ranges}
+    for reference in expected:
+        if reference not in actual:
+            problems.append(f"需求列缺少合并单元格：{reference}")
+    for reference in actual:
+        if reference not in expected:
+            problems.append(f"需求列出现多余的合并单元格：{reference}")
+    for reference, requirement in expected.items():
+        start_row, end_row = (int(part[1:]) for part in reference.split(":"))
+        anchor = detail.cell(row=start_row, column=REQUIREMENT_COLUMN).value
+        if anchor != requirement:
+            problems.append(f"{reference} 的需求内容不正确：{anchor}")
+        for excel_row in range(start_row + 1, end_row + 1):
+            if detail.cell(row=excel_row, column=REQUIREMENT_COLUMN).value is not None:
+                problems.append(f"{reference} 内的重复需求未清空：第 {excel_row} 行")
     return problems
 
 
@@ -377,14 +443,18 @@ def write_report(
         "",
         "## 明细",
         "",
+        "一条需求可以对应多个任务说明；同一需求的多行在「需求」列只写一次，后续行以「〃」表示同上。",
+        "",
         "| # | 需求（业务语言） | 需求出处 | 任务说明（技术语言） | 实现出处 | 任务类型 | 基线开发 | 修正 | 设计 | 开发 | 测试 |",
         "| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |",
     ]
+    group_starts = {group[0].index for group in requirement_groups(rows)}
     for row in rows:
         correction = f"{row.scenario}×{_fmt(row.correction)}" if row.scenario else "—"
         base = _fmt(row.base_md) if row.base_md is not None else "—"
+        requirement = row.requirement if row.index in group_starts else "〃"
         lines.append(
-            f"| {row.index} | {row.requirement} | {row.requirement_source or '—'} | "
+            f"| {row.index} | {requirement} | {row.requirement_source or '—'} | "
             f"{row.description} | {row.task_source or '—'} | {row.task_type_label} | {base} | "
             f"{correction} | {row.design} | {row.development} | {row.testing} |"
         )

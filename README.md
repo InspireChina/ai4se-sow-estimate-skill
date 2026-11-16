@@ -14,7 +14,7 @@
 ```text
 .
 ├── SKILL.md                              # 技能流程：核对输入 → 解析 → 拆解 → 对齐 → 生成 → 交付
-├── guide.md                              # 估算指南：输入、输出、步骤、基线维护、饺子（代号）客户专用
+├── guide.md                              # 估算指南：怎么跟 Agent 说话、Agent 问什么、结果怎么改
 ├── Inspire 估算基线 v0.1.xlsx            # 唯一权威：任务目录、修正因子、估算参数
 ├── Inspire 工作量评估模版 v0.1.xlsx      # 输出模板
 ├── scripts/
@@ -34,6 +34,22 @@
 不需要源码 checkout。
 
 ## 快速开始
+
+把目录复制到宿主的 skills 目录后，直接跟 Agent 说：
+
+```text
+用 inspire 工作量评估技能估算「咨询师预约平台」的工作量。
+
+PRD：examples/prd.md
+技术方案：examples/hld.md
+原型：examples/prototype/
+产出放到：examples/output/
+```
+
+Agent 会自己完成解析、拆解、对齐基线、生成与校验，不需要你执行任何命令。
+怎么跟 Agent 说话、Agent 会问什么、结果怎么改，见 [估算指南](guide.md)。
+
+需要直接跑脚本时（例如调试或复用脚本）：
 
 ```text
 # 1. 解析输入
@@ -101,6 +117,7 @@ python scripts/build_estimate.py \
 基线里缺参数时脚本直接报错，不使用内置默认值。
 评估文件的第三列「任务类型」写完整路径 `任务大类-任务类型-子任务类型`。
 命中集成类任务类型时不叠加修正系数，复杂度差异体现在基线档位上。
+需求文字相同的相邻任务行会合并成一个需求单元格：一条需求可以对应多个任务说明。
 细节见 [拆解与估算口径](references/estimation-method.md)。
 
 ## 测试
